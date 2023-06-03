@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/Entypo';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {createStackNavigator} from '@react-navigation/stack';
 import MenuScreen from '../screens/MenuScreen';
+import Accoount from '../screens/Accoount';
 
 
 const Tab = createBottomTabNavigator();
@@ -27,7 +28,7 @@ const MyTabs = () => {
       }}>
       <Tab.Screen
         name="Home"
-        component={HomeScreen}
+        component={StackNavigation}
         options={{
           headerShown:false,
           tabBarIcon: ({focused}) => {
@@ -41,7 +42,7 @@ const MyTabs = () => {
       />
       <Tab.Screen
         name="Profile"
-        component={StackNavigation}
+        component={ProfileStackNavigator}
         options={{
           headerShown:false,
           tabBarIcon: ({}) => {
@@ -56,11 +57,19 @@ const MyTabs = () => {
 const StackNavigation = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}} />
-      <Stack.Screen name="ProfilePage" component={ProfilePage} options={{headerShown: false}} />
-      <Stack.Screen name="Menu" component={MenuScreen} options={{headerShown: false}} />
+      <Stack.Screen name="HomePage" component={HomeScreen} options={{headerShown: false}} />
+      <Stack.Screen name="MenuScreen" component={MenuScreen} options={{headerShown: false}} />
     </Stack.Navigator>
   );
 };
+
+const ProfileStackNavigator = () => {
+  return(
+    <Stack.Navigator>
+      <Stack.Screen name="ProfilePage" component={ProfilePage} options={{headerShown: false}} />
+       <Stack.Screen name="Accoount" component={Accoount} options={{headerShown: false}} />
+    </Stack.Navigator>
+  )
+}
 
 export default MyTabs;

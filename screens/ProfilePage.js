@@ -7,7 +7,7 @@ const ProfilePage = ({navigation}) => {
   return (
     <View>
       <Text>ProfilePage</Text>
-      <Button title="Account Settings"  onPress={() => navigation.navigate("Account")}/>
+      <Button title="Account Settings"  onPress={() => navigation.navigate("Accoount")}/>
     </View>
   )
 }

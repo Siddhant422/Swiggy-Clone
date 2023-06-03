@@ -10,7 +10,7 @@ const MenuItem = ({item}) => {
   const navigation = useNavigation();
   return (
     <View style = {{margin: 10}}>
-      <Pressable onPress={() => navigation.navigate("Menu")} style = {{flexDirection: 'row'}}>
+      <Pressable onPress={() => navigation.navigate('MenuScreen')} style = {{flexDirection: 'row'}}>
         <View>
         <ImageBackground
             imageStyle={{ borderRadius: 6 }}
