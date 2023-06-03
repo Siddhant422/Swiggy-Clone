@@ -1,4 +1,11 @@
-import {StyleSheet,Text,View,TextInput,ScrollView,Pressable} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  ScrollView,
+  Pressable,
+} from 'react-native';
 import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Carousel from '../components/Carousel';
@@ -6,6 +13,7 @@ import TypesFood from '../components/TypesFood';
 import QuickFood from '../components/QuickFood';
 import hotels from '../data/hotels';
 import MenuItem from '../components/MenuItem';
+import OfferList from '../components/OfferList';
 
 const HomeScreen = () => {
   const data = hotels;
@@ -21,7 +29,7 @@ const HomeScreen = () => {
       <View style={styles.SortFilterStyle}>
         <Pressable style={styles.filterStyle}>
           <Icon name="filter-sharp" size={24} color="green" />
-          <Text style ={{marginLeft: 10}}>Filter</Text>
+          <Text style={{marginLeft: 10}}>Filter</Text>
         </Pressable>
 
         <Pressable style={styles.sortStyle}>
@@ -32,9 +40,15 @@ const HomeScreen = () => {
           <Text>Sort by price</Text>
         </Pressable>
       </View>
-      {data.map((item,index) => (
-        <MenuItem key={index} item = {item}/>
+      {data.map((item, index) => (
+        <MenuItem key={index} item={item} />
       ))}
+      <View style= {{marginBottom:80}}>
+        <Text style = {styles.offerTextStyle}>Price Ranges!</Text>
+      <OfferList title ={"Below ₹ 99"} Secondtitle = {"₹ 100 to ₹ 199"}/>
+      <OfferList title ={"₹ 100 to ₹ 199"} Secondtitle = {"₹ 100 to ₹ 199"}/>
+      <OfferList title ={"₹ 100 to ₹ 199"} Secondtitle = {"Above ₹ 1000"}/>
+      </View>
     </ScrollView>
   );
 };
@@ -80,4 +94,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
   },
+  offerTextStyle: {
+    marginHorizontal: 12,
+    fontSize: 17,
+    fontWeight: '900',
+    color: 'black'
+  }
 });
